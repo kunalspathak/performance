@@ -704,8 +704,9 @@ def install(
                 with open(dotnetInstallScriptPath, 'wb') as outfile:
                     outfile.write(response.read())
                     break
-        except Exception:
+        except Exception as ex:
             count = count + 1
+            print(f"Attempt#{count} : {str(ex)}")
             sleep(1)
             continue
 
